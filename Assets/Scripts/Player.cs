@@ -39,9 +39,7 @@ public class Player : MonoBehaviour
     // Adds one planted seed to the screen and updates the UI accordingly
     public void PlantSeed ()
     {
-        _numSeedsLeft--;
         Instantiate(_plantPrefab, _playerTransform.position, new Quaternion() );  // Plants the seed at the player's position
-        _numSeedsPlanted++;
-        _plantCountUI.UpdateSeeds(_numSeedsLeft, _numSeedsPlanted);
+        _plantCountUI.UpdateSeeds(--_numSeedsLeft, ++_numSeedsPlanted);  // Prefixed operators to update these values first and then pass the arguments
     }
 }
